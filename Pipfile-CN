@@ -2,7 +2,7 @@
 name = "pypi"
 # Use ali pypi
 url = "http://mirrors.aliyun.com/pypi/simple/"
-verify_ssl = true
+verify_ssl = false
 
 [dev-packages]
 pytest = "*"
