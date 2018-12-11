@@ -1,0 +1,49 @@
+#   _                                  __ _       
+#  | |                                / _(_)      
+#  | | ___   __ _      ___ ___  _ __ | |_ _  __ _ 
+#  | |/ _ \ / _` |    / __/ _ \| '_ \|  _| |/ _` |
+#  | | (_) | (_| |   | (_| (_) | | | | | | | (_| |
+#  |_|\___/ \__, |    \___\___/|_| |_|_| |_|\__, |
+#            __/ |                           __/ |
+#           |___/                           |___/ 
+
+version = 1
+
+disable_existing_loggers = false
+
+[formatters.simple]
+format = "[%(asctime)s] - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s"
+
+[handlers.wsgi]
+class = "logging.StreamHandler"
+level = "INFO"
+formatter = "simple"
+stream = "ext://sys.stdout
+
+[handlers.info_file_handler]
+class = "logging.handlers.RotatingFileHandler"
+level = "INFO"
+formatter = "simple"
+filename = "logs/info.log"
+maxBytes = 10485760
+backupCount = 20
+encoding = "utf8"
+
+[handlers.error_file_handler]
+class = "logging.handlers.RotatingFileHandler"
+level = "ERROR"
+formatter = "simple"
+filename = "logs/errors.log"
+# File max is 10 MB
+maxBytes = 10485760
+backupCount = 20
+encoding = "utf8"
+
+[loggers.my_module]
+level = "ERROR"
+handlers = ["wsgi"]
+propagate = false
+
+[root]
+level = "INFO"
+handlers = ["wsgi", "info_file_handler", "error_file_handler"]
