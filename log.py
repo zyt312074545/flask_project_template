@@ -16,17 +16,17 @@ import os
 import logging
 import logging.config
 
-import toml
+import yaml
 
 
 def setup_logging(
-        default_path='log.toml',
+        default_path='log.yml',
         default_level=logging.INFO,
 ):
     path = default_path
     if os.path.exists(path):
         with open(path, 'r') as f:
-            config = toml.loads(f.read())
+            config = yaml.safe_load(f.read())
         logging.config.dictConfig(config)
     else:
         logging.basicConfig(level=default_level)
@@ -34,8 +34,8 @@ def setup_logging(
 
 
 # Reset Werkzeug log level
-log = logging.getLogger('werkzeug')
-log.setLevel(logging.ERROR)
+werkzeug_log = logging.getLogger('werkzeug')
+werkzeug_log.setLevel(logging.ERROR)
 
 # Return logger
 # Flask App should remove default_handler
