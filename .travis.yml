@@ -1,0 +1,23 @@
+#sudo: false
+#
+#language: python
+#python:
+#  - "3.7"
+
+# command to install dependencies
+#install:
+#  - pip install pipenv codecov
+#  - pipenv install --skip-lock
+#  - pipenv install --dev --skip-lock
+
+# command to use service
+#services:
+#  - mongodb
+#  - mysql
+
+# command to run tests
+#script:
+#  - pipenv run pytest --cov=./
+
+# command to generate code coverage
+#after_success: codecov
