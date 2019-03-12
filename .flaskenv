@@ -13,5 +13,5 @@ FLASK_ENV=development
 # FLASK_RUN_PORT=5001
 # FLASK_RUN_HOST=0.0.0.0
 
-# Set app name
-# FLASK_APP=app
+# Set flask project name
+FLASK_APP=project
