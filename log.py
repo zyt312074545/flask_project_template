@@ -19,13 +19,10 @@ import logging.config
 import yaml
 
 
-def setup_logging(
-        default_path='log.yml',
-        default_level=logging.INFO,
-):
+def setup_logging(default_path="log.yml", default_level=logging.INFO):
     path = default_path
     if os.path.exists(path):
-        with open(path, 'r') as f:
+        with open(path, "r") as f:
             config = yaml.safe_load(f.read())
         logging.config.dictConfig(config)
     else:
@@ -34,7 +31,7 @@ def setup_logging(
 
 
 # Reset Werkzeug log level
-werkzeug_log = logging.getLogger('werkzeug')
+werkzeug_log = logging.getLogger("werkzeug")
 werkzeug_log.setLevel(logging.ERROR)
 
 # Return logger

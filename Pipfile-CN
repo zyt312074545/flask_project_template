@@ -6,6 +6,7 @@ verify_ssl = false
 
 [dev-packages]
 pytest = "*"
+black = "*"
 
 [packages]
 flask = "*"

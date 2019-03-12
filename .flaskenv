@@ -8,3 +8,10 @@
                                                                    
 # Set env variable
 FLASK_ENV=development
+
+# Set run info
+# FLASK_RUN_PORT=5001
+# FLASK_RUN_HOST=0.0.0.0
+
+# Set app name
+# FLASK_APP=app
