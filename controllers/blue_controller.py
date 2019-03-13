@@ -12,7 +12,7 @@ class BlueController(BaseController):
         return "blue"
 
 
-api_blue = Blueprint('blue', __name__)
+api_blue = Blueprint("blue", __name__)
 api = Api(api_blue)
 
 api.add_resource(BlueController, "/blue")

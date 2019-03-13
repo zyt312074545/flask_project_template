@@ -25,16 +25,16 @@ fileConfig(config.config_file_name)
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
 from models import base_model
-from models.test_model import TestModel
+from models import __all_models__
 
 config = context.config
 fileConfig(config.config_file_name)
 
-if os.getenv('ENV') == 'dev':
-    connect_string = os.getenv('DEVELOPMENT_DATABASE_URI')
+if os.getenv("ENV") == "dev":
+    connect_string = os.getenv("DEVELOPMENT_DATABASE_URI")
 else:
-    connect_string = os.getenv('PRODUCTION_DATABASE_URI')
-config.set_main_option('sqlalchemy.url', connect_string)
+    connect_string = os.getenv("PRODUCTION_DATABASE_URI")
+config.set_main_option("sqlalchemy.url", connect_string)
 target_metadata = base_model.BaseModel.metadata
 
 # other values from the config, defined by the needs of env.py,
@@ -56,9 +56,7 @@ def run_migrations_offline():
 
     """
     url = config.get_main_option("sqlalchemy.url")
-    context.configure(
-        url=url, target_metadata=target_metadata, literal_binds=True
-    )
+    context.configure(url=url, target_metadata=target_metadata, literal_binds=True)
 
     with context.begin_transaction():
         context.run_migrations()
@@ -78,9 +76,7 @@ def run_migrations_online():
     )
 
     with connectable.connect() as connection:
-        context.configure(
-            connection=connection, target_metadata=target_metadata
-        )
+        context.configure(connection=connection, target_metadata=target_metadata)
 
         with context.begin_transaction():
             context.run_migrations()

@@ -12,7 +12,7 @@ class TestController(BaseController):
         return "test"
 
 
-api_test = Blueprint('test', __name__)
+api_test = Blueprint("test", __name__)
 api = Api(api_test)
 
 api.add_resource(TestController, "/test")
