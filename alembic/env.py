@@ -1,5 +1,8 @@
 from __future__ import with_statement
 
+import os
+import sys
+from pathlib import Path
 from logging.config import fileConfig
 
 from sqlalchemy import engine_from_config
@@ -19,7 +22,20 @@ fileConfig(config.config_file_name)
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
-target_metadata = None
+sys.path.append(str(Path(__file__).resolve().parent.parent))
+
+from models import base_model
+from models.test_model import TestModel
+
+config = context.config
+fileConfig(config.config_file_name)
+
+if os.getenv('ENV') == 'dev':
+    connect_string = os.getenv('DEVELOPMENT_DATABASE_URI')
+else:
+    connect_string = os.getenv('PRODUCTION_DATABASE_URI')
+config.set_main_option('sqlalchemy.url', connect_string)
+target_metadata = base_model.BaseModel.metadata
 
 # other values from the config, defined by the needs of env.py,
 # can be acquired:
