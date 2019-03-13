@@ -23,7 +23,7 @@ $ pipenv run alembic init alembic
 
 $ pipenv run alembic revision --autogenerate -m "initdb"
 
-$ pipenv run alembic upgrade
+$ pipenv run alembic upgrade head
 ```
 
 When add new model, model need write in `models/__init__.py` file.
