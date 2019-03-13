@@ -6,12 +6,14 @@ verify_ssl = true
 [dev-packages]
 pytest = "*"
 black = "*"
+alembic = "*"
 
 [packages]
 flask = "*"
 python-dotenv = "*"
 pyyaml = "*"
-flask-sqlalchemy = "*"
+flask-restful = "*"
+sqlalchemy = "*"
 
 [requires]
 python_version = "3.7"
