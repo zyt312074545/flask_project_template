@@ -6,5 +6,5 @@ from apis.blue import api_blue
 
 app = Flask(__name__)
 
-app.register_blueprint(api_test)
-app.register_blueprint(api_blue)
+app.register_blueprint(api_test, url_prefix="/test")
+app.register_blueprint(api_blue, url_prefix="/blue")

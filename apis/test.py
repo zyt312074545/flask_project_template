@@ -6,5 +6,5 @@ from controllers.test_controller import TestListController, TestController
 api_test = Blueprint("test", __name__)
 api = Api(api_test)
 
-api.add_resource(TestListController, "/test")
-api.add_resource(TestController, "/test/<string:_id>")
+api.add_resource(TestListController, "/")
+api.add_resource(TestController, "/<string:_id>")
