@@ -1,6 +1,4 @@
-from flask import Blueprint
 from flask import request
-from flask_restful import Api
 
 from .base_controller import BaseController
 from services.test_service import TestService
@@ -36,10 +34,3 @@ class TestController(BaseController):
         service = TestService()
         response = service.delete(_id)
         return response
-
-
-api_test = Blueprint("test", __name__)
-api = Api(api_test)
-
-api.add_resource(TestListController, "/test")
-api.add_resource(TestController, "/test/<string:_id>")

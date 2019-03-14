@@ -1,8 +1,8 @@
 from flask import Flask
 
 # import controller
-from controllers.test_controller import api_test
-from controllers.blue_controller import api_blue
+from apis.test import api_test
+from apis.blue import api_blue
 
 app = Flask(__name__)
 

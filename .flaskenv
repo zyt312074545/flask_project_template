@@ -14,4 +14,4 @@ FLASK_ENV=development
 # FLASK_RUN_HOST=0.0.0.0
 
 # Set flask project name
-FLASK_APP=api
+# FLASK_APP=api
