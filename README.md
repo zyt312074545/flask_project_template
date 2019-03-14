@@ -18,6 +18,9 @@ Managing Environment Variables
 Init Database
 ------------------------------
 
+Before initialization database, you need decide the database type in 
+`alembic/env.py`. 
+
 ```
 $ pipenv run alembic init alembic
 

@@ -1,6 +1,5 @@
 from __future__ import with_statement
 
-import os
 import sys
 from pathlib import Path
 from logging.config import fileConfig
@@ -24,17 +23,15 @@ fileConfig(config.config_file_name)
 # target_metadata = mymodel.Base.metadata
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 
-from models import base_model
-from models import __all_models__
+from utils.env_info import get_database_uri
+from models import base_model, __all_models__
 
 config = context.config
 fileConfig(config.config_file_name)
 
-if os.getenv("ENV") == "dev":
-    connect_string = os.getenv("DEVELOPMENT_DATABASE_URI")
-else:
-    connect_string = os.getenv("PRODUCTION_DATABASE_URI")
-config.set_main_option("sqlalchemy.url", connect_string)
+# You need decide the database type
+database_uri = get_database_uri('SQLITE')
+config.set_main_option("sqlalchemy.url", database_uri)
 target_metadata = base_model.BaseModel.metadata
 
 # other values from the config, defined by the needs of env.py,
