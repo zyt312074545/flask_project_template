@@ -38,6 +38,15 @@ Run Project
 $ pipenv run flask run
 ```
 
+Test Project
+------------------------------
+
+```
+$ cd /tests
+
+$ pipenv run pytest
+```
+
 View Project All Routes
 ------------------------------
 ```
