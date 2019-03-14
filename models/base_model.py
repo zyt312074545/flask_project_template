@@ -11,5 +11,6 @@ class BaseModel(Base):
 
     _id = Column(BigInteger, primary_key=True, unique=True)
 
-    def __init__(self):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self._id = Snowflake(0).generate()

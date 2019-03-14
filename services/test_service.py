@@ -11,7 +11,6 @@ class TestService(BaseService):
     def create(self, username, password):
         with SQLite().session_scope() as session:
             test = TestModel(
-                _id=1,
                 username=username,
                 password=password
             )
