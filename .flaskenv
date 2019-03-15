@@ -15,3 +15,6 @@ FLASK_ENV=development
 
 # Set flask project name
 # FLASK_APP=api
+
+# Set Debug Mode
+FLASK_DEBUG=1
