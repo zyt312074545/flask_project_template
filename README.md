@@ -1,4 +1,4 @@
-# My flask templet for development.
+# Flask Project Template for development.
 
 Managing Dependencies
 ---------------------
