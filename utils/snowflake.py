@@ -10,10 +10,10 @@ import threading
 
 
 class Snowflake(object):
-    # 23 bit = 2 region + 10 worker + 11 sequence (< 2048)
+    # 22 bit = 2 region + 8 worker + 12 sequence (< 4096)
     region_id_bits = 2
-    worker_id_bits = 10
-    sequence_bits = 11
+    worker_id_bits = 8
+    sequence_bits = 12
 
     MAX_REGION_ID = -1 ^ (-1 << region_id_bits)
     MAX_WORKER_ID = -1 ^ (-1 << worker_id_bits)
