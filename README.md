@@ -52,3 +52,10 @@ View Project All Routes
 ```
 $ pipenv run flask routes
 ```
+
+Flask Extensions
+------------------------------
+[Flask Extensions](http://flask.pocoo.org/extensions/)
+
+[flask-apispec](https://github.com/jmcarp/flask-apispec)
+
