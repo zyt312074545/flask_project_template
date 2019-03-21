@@ -59,3 +59,9 @@ Flask Extensions
 
 [flask-apispec](https://github.com/jmcarp/flask-apispec)
 
+[Flask-SocketIO](https://github.com/miguelgrinberg/Flask-SocketIO)
+
+[authlib](https://github.com/lepture/authlib)
+
+[GitHub-Flask](https://github.com/cenkalti/github-flask)
+
