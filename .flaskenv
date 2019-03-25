@@ -6,7 +6,7 @@
 # |_|    |______/_/    \_\_____/|_|\_\       |______|_| \_|   \/    
                                                                    
                                                                    
-# Set env variable
+# Set env variable (development & production)
 FLASK_ENV=development
 
 # Set run info

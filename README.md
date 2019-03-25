@@ -38,6 +38,17 @@ Run Project
 $ pipenv run flask run
 ```
 
+Run Project production
+------------------------------
+
+- `.env`: Set ENV Variables
+- `.flaskenv`: Set FLASK_ENV Variables
+
+```
+# work = 2 x CPU + 1
+$ gunicorn -w 4 -b 0.0.0.0:5000 app:app
+```
+
 Test Project
 ------------------------------
 
