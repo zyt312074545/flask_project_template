@@ -18,3 +18,9 @@ FLASK_ENV=development
 
 # Set Debug Mode
 FLASK_DEBUG=1
+
+# Flask-SQLAlchemy configuration
+# SQLALCHEMY_DATABASE_URI = mysql://username:password@server/db
+# SQLALCHEMY_ECHO = True
+# SQLALCHEMY_RECORD_QUERIES = True
+# SQLALCHEMY_COMMIT_ON_TEARDOWN = True

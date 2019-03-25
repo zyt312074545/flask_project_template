@@ -65,3 +65,4 @@ Flask Extensions
 
 [GitHub-Flask](https://github.com/cenkalti/github-flask)
 
+[Flask-Caching](https://github.com/sh4nks/flask-caching)
