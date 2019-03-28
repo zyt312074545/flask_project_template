@@ -1,7 +1,7 @@
 from flask import request
 
-from .base_controller import BaseController
-from services.test_service import TestService
+from app.controllers.base_controller import BaseController
+from app.services.test_service import TestService
 
 
 class TestListController(BaseController):

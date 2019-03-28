@@ -1,6 +1,6 @@
 from flask_restful import Resource
 
-from utils.serialization import JSONSerializer
+from app.utils.serialization import JSONSerializer
 
 
 class BaseController(Resource):

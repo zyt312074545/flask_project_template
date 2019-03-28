@@ -18,18 +18,19 @@ Managing Environment Variables
 Init Database
 ------------------------------
 
-Before initialization database, you need decide the database type in 
-`alembic/env.py`. 
-
 ```
-$ pipenv run alembic init alembic
+# init database
+$ pipenv run flask initdb
 
-$ pipenv run alembic revision --autogenerate -m "initdb"
+# delete datebase and init
+$ pipenv run flask initdb --drop
 
-$ pipenv run alembic upgrade head
+# migrate database
+$ pipenv run flask db init
+$ pipenv run flask db migrate -m "init database"
+
+$ pipenv run flask db upgrade
 ```
-
-When add new model, model need write in `models/__init__.py` file.
 
 Run Project
 ------------------------------
@@ -46,7 +47,7 @@ Run Project production
 
 ```
 # work = 2 x CPU + 1
-$ gunicorn -w 4 -b 0.0.0.0:5000 app:app
+$ gunicorn -w 4 -b 0.0.0.0:5000 wsgi:app
 ```
 
 Test Project

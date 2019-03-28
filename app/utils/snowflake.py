@@ -24,7 +24,7 @@ class Snowflake(object):
     TIMESTAMP_LEFT_SHIFT = sequence_bits + worker_id_bits + region_id_bits
 
     def __init__(self, worker_id, region_id=0):
-        self.twepoch = 1495977602000
+        self.twepoch = 1553791351895
         self.last_timestamp = -1
         self.sequence = 0
 

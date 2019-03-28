@@ -6,7 +6,7 @@ import uuid
 from datetime import date, datetime
 from decimal import Decimal
 
-from .exceptions import SerializationError
+from app.utils.exceptions import SerializationError
 
 
 class JSONSerializer(object):
