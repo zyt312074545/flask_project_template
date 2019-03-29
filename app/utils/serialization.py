@@ -10,7 +10,6 @@ from app.utils.exceptions import SerializationError
 
 
 class JSONSerializer(object):
-
     def default(self, data):
         if isinstance(data, (date, datetime)):
             return data.isoformat()
@@ -32,10 +31,7 @@ class JSONSerializer(object):
 
         try:
             return json.dumps(
-                data,
-                default=self.default,
-                ensure_ascii=False,
-                separators=(',', ':'),
+                data, default=self.default, ensure_ascii=False, separators=(",", ":")
             )
         except (ValueError, TypeError) as e:
             raise SerializationError(data, e)

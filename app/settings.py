@@ -11,8 +11,11 @@ class BaseConfig(object):
 
 
 class DevelopmentConfig(BaseConfig):
-    SQLALCHEMY_DATABASE_URI = os.getenv("DEVELOPMENT_SQLALCHEMY_DATABASE_URI") if bool(
-        os.getenv("DEVELOPMENT_SQLALCHEMY_DATABASE_URI")) else "sqlite:///" + os.path.join(basedir, "data-dev.db")
+    SQLALCHEMY_DATABASE_URI = (
+        os.getenv("DEVELOPMENT_SQLALCHEMY_DATABASE_URI")
+        if bool(os.getenv("DEVELOPMENT_SQLALCHEMY_DATABASE_URI"))
+        else "sqlite:///" + os.path.join(basedir, "data-dev.db")
+    )
 
 
 class TestConfig(BaseConfig):
@@ -29,5 +32,5 @@ class ProductionConfig(BaseConfig):
 config = {
     "development": DevelopmentConfig,
     "testing": TestConfig,
-    "production": ProductionConfig
+    "production": ProductionConfig,
 }
