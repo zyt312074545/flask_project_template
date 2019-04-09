@@ -8,6 +8,7 @@ class BaseConfig(object):
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SQLALCHEMY_ECHO = True
     SQLALCHEMY_RECORD_QUERIES = True
+    BLUELOG_SLOW_QUERY_THRESHOLD = 1
 
 
 class DevelopmentConfig(BaseConfig):

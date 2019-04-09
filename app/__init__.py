@@ -3,12 +3,14 @@ import os
 from logging.handlers import RotatingFileHandler
 
 import click
-from flask import Flask, request
+from flask import Flask, request, jsonify
+from flask_sqlalchemy import get_debug_queries
 
 from app.settings import config
 from app.extensions import db, migrate
 from app.apis.test import api_test
 from app.models.test_model import TestModel
+from app.utils.exceptions import NewError
 
 
 basedir = os.path.abspath(os.path.dirname(os.path.dirname(__file__)))
@@ -26,6 +28,8 @@ def create_app(config_name=None):
     register_commands(app)
     register_shell_context(app)
     register_logging(app)
+    register_errors(app)
+    register_request_handlers(app)
     return app
 
 
@@ -105,3 +109,25 @@ def register_logging(app):
     if not app.debug:
         app.logger.addHandler(error_file_handler)
         # app.logger.addHandler(mail_handler)
+
+
+def register_errors(app):
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        return jsonify("internal server error"), 500
+
+    @app.errorhandler(NewError)
+    def new_error(e):
+        return jsonify("new error"), 400
+
+
+def register_request_handlers(app):
+    @app.after_request
+    def query_profiler(response):
+        for q in get_debug_queries():
+            if q.duration >= app.config['BLUELOG_SLOW_QUERY_THRESHOLD']:
+                app.logger.warning(
+                    'Slow query: Duration: %fs\n Context: %s\nQuery: %s\n '
+                    % (q.duration, q.context, q.statement)
+                )
+        return response
