@@ -67,6 +67,16 @@ View Project All Routes
 $ pipenv run flask routes
 ```
 
+Tips
+------------------------------
+
+If your project use `Decimal` type to calculate numbers and you want to encode
+`Decimal` to `str`, you can install `simplejson`.
+
+```
+$ pipenv install simplejson
+```
+
 Flask Extensions
 ------------------------------
 [Flask Extensions](http://flask.pocoo.org/extensions/)

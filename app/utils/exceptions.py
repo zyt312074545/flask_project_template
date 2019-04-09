@@ -1,5 +1,9 @@
-class SerializationError(Exception):
+"""
+Where user can define error.
+"""
+
+
+class NewError(Exception):
     """
-    Data passed in failed to serialize properly in the ``Serializer`` being
-    used.
+    A New Error.
     """
